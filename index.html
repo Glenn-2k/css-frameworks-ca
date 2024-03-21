@@ -7,24 +7,31 @@
     <link rel="stylesheet" href="dist/css/index.css">
     <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body class="container">
-    <div class="col">
-        <h1 class="text-center">Hello, world!</h1>
-        <p class="text-center">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <p class="text-center">It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <div class="row">
-            <div class="col">
-                <button type="button" class="btn btn-primary">Primary</button>
-                <button type="button" class="btn btn-secondary">Secondary</button>
-                <button type="button" class="btn btn-success">Success</button>
-                <button type="button" class="btn btn-danger">Danger</button>
-                <button type="button" class="btn btn-warning">Warning</button>
-                <button type="button" class="btn btn-info">Info</button>
-                <button type="button" class="btn btn-light">Light</button>
-                <button type="button" class="btn btn-dark">Dark</button>
-                <button type="button" class="btn btn-link">Link</button>
+<body class="bg-dark text-w-white">
+    <div class="container d-flex align-items-center justify-content-center vh-100">
+<div class="card">
+    <div class="card-body"></div>
+    <h2 class="card-title text-center mb-4">Night</h2>
+</div>
+    </div>
+    <div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+        <div class="card" style="width: 20rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center mb-4">Login</h5>
+                <form>
+                    <div class="mb-3">
+                        <label for="inputEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="inputEmail">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="inputPassword">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Sign in</button>
+                </form>
             </div>
         </div>
     </div>
+    
 </body>
 </html>
