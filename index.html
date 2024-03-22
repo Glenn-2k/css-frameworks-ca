@@ -5,25 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="dist/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body class="bg-n-bg-black text-w-white">
     <div class="container d-flex align-items-center justify-content-center vh-100">
-        <div class="card w-100">
-            <div class="card-body bg-n-gold">
-                <h2 class="card-title text-center mb-4">Night</h2>
-                <form>
-                    <div class="mb-3">
-                        <label for="inputEmail" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="inputEmail">
+        <div class="row justify-content-center w-100">
+            <div class="col-sm-12 col-md-8 col-lg-6">
+                <div class="card">
+                    <div class="card-body bg-n-gold py-5">
+                        <h2 class="card-title text-center mb-4 text-uppercase fs-1">Night</h2>
+                        <form>
+                            <div class="mb-3">
+                                <label for="inputEmail" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="inputEmail">
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="inputPassword">
+                            </div>
+                                <button type="submit" class="btn btn-n-bg-black w-100 mb-2">Sign in</button>
+                                <button type="submit" class="btn btn-outline-n-bg-black w-100">Sign up!</button>
+                        </form>
                     </div>
-                    <div class="mb-3">
-                        <label for="inputPassword" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="inputPassword">
-                    </div>
-                        <button type="submit" class="btn btn-n-bg-black w-100 mb-2">Sign in</button>
-                        <button type="submit" class="btn btn-outline-n-bg-black w-100">Sign up!</button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
