@@ -1,36 +1,37 @@
 $theme-colors: (
     "n-gold": #D9CA82,
     "n-bg-black": #283034,
-);
-
-$theme-colors-text: (
-    "n-text-nav": $gray-200,
-);
-
-.letter-spacing {   // added custom CSS since there isnt one for letter-spacing
-    letter-spacing: 0.1em;
-}
-
-
-
-
-
-// scss-docs-start import-stack
-// Configuration
-@import "../../node_modules/bootstrap/scss/functions";
-@import "variables";
-@import "variables-dark";
-@import "../../node_modules/bootstrap/scss/maps";
-@import "../../node_modules/bootstrap/scss/mixins";
-@import "../../node_modules/bootstrap/scss/utilities";
-
-
-@import "../../node_modules/bootstrap/scss/bootstrap";
-
+    );
+    
+    
+    
+    
+    
+    
+    // scss-docs-start import-stack
+    // Configuration
+    @import "../../node_modules/bootstrap/scss/functions";
+    @import "variables";
+    @import "variables-dark";
+    @import "../../node_modules/bootstrap/scss/maps";
+    @import "../../node_modules/bootstrap/scss/mixins";
+    @import "../../node_modules/bootstrap/scss/utilities";
+    
+    
+    @import "../../node_modules/bootstrap/scss/bootstrap";
+    
 body {
     font-family: 'Roboto', Arial, sans-serif;
 }
 
 h1,h2,h3,h4,h5 {
     font-family: 'Lato', Arial, sans-serif;
+}
+
+
+.letter-spacing {   // added custom CSS since there isnt one for letter-spacing
+    letter-spacing: 0.1em;
+}
+.nav-text {
+    color: #e9ecef !important;
 }
