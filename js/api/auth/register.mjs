@@ -1,19 +1,48 @@
-import { API_AUTH, API_URL, API_REGISTER } from "../constants.mjs";
+import { API_SOCIAL_URL } from "../constants.mjs";
+
+// const action = "/auth/register";
+// const method = "post";
+
+// export async function register(profile) {
+//     const registerURL = API_SOCIAL_URL + action;
+//     const body = JSON.stringify(profile);
+    
+
+// const response = await fetch(registerURL, {
+//     headers: {
+//         "Content-Type": "application/json"
+//     },
+//     method,
+//     body
+// }) 
+// console.log(response);
 
 
-export async function register(name, email, password) {
+// const result = await response.json();
+// console.log(result);
+// }
 
-const response = await fetch(API_URL + API_AUTH + API_REGISTER, {
+
+
+const action = "/auth/register";
+const method = "post";
+
+export async function register(profile) {
+    const registerURL = API_SOCIAL_URL + action;
+
+    const body = JSON.stringify(profile);
+
+    const response = await fetch(registerURL, {
     headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
     },
-    method: "POST",
-    body: JSON.stringify({ name, email, password })
-});
+    method,
+    body
+})
 
-if (response.ok) {
-    return await response.json();
-} else { 
-    throw new Error("Something went wrong");
-    }
+const result = await response.json();
+console.log(result);
 }
+
+
+
