@@ -4,8 +4,9 @@ import { setLoginFormListener } from "./handlers/login.mjs";
 
 const path = location.pathname;
 
-if (path === "/index.html") {
+if (path === "/" || path === "/index.html") {
     setLoginFormListener();
+    console.log("did this work?");
 } else if (path === "/register/index.html") {
     setRegisterFormListener();
 }

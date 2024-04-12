@@ -18,6 +18,7 @@ export async function login(profile) {
 
 const result = await response.json();
 console.log(result);
+return result;
 }
 
 
