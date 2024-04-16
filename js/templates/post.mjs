@@ -1,3 +1,5 @@
+import * as post from "../api/posts/index.mjs";
+
 
 function appendChildren(parent, children) {
     children.forEach(child => {
