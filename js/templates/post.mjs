@@ -24,7 +24,7 @@ export function postTemplate(postData) {
     postTitleContent.className = "d-flex align-items-center";
 
     const postImage = document.createElement("img");
-    postImage.src = "/images/Glenn-02.png";
+    postImage.src = postData.author.avatar;
     postImage.className = "rounded-circle height-40";
     postImage.alt = "Profile Image";
 
