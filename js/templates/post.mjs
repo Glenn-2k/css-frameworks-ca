@@ -8,6 +8,8 @@ function appendChildren(parent, children) {
 };
 
 export function postTemplate(postData) {
+
+    console.log(postData);
     const post = document.createElement("div");
     post.className = "card border-dark mb-3 mx-auto";
 
@@ -27,7 +29,7 @@ export function postTemplate(postData) {
 
     const postUsername = document.createElement("h5");
     postUsername.className = "card-title mb-0 ms-2 fs-6 fw-bold";
-    postUsername.textContent = postData._author;
+    postUsername.textContent = postData.author.name;
 
     const postTime = document.createElement("small");
     postTime.className = "text-muted";
@@ -45,6 +47,7 @@ export function postTemplate(postData) {
     
 
     return post;
+    
 }
 
 
