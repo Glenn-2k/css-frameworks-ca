@@ -6,7 +6,7 @@ const author = "/?_author=true"
 
 
 export async function getPosts() {
-    const getURL = `${API_SOCIAL_URL}${action}${author}   `;
+    const getURL = `${API_SOCIAL_URL}${action}${author}`;
 
     const response = await authFetch(getURL)   
 
