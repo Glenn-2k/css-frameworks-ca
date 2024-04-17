@@ -27,7 +27,7 @@ export function postTemplate(postData) {
 
     const postUsername = document.createElement("h5");
     postUsername.className = "card-title mb-0 ms-2 fs-6 fw-bold";
-    postUsername.textContent = postData.username;
+    postUsername.textContent = postData._author;
 
     const postTime = document.createElement("small");
     postTime.className = "text-muted";
@@ -35,7 +35,7 @@ export function postTemplate(postData) {
 
     const postContent = document.createElement("p");
     postContent.className = "card-text";
-    postContent.textContent = postData.content;
+    postContent.textContent = postData.body;
 
     
     appendChildren(postTitleContent, [postImage, postUsername]);
