@@ -1,4 +1,5 @@
 import * as post from "../api/posts/index.mjs";
+import { timeSince } from "../api/utilities/timeSince.mjs";
 
 
 function appendChildren(parent, children) {
@@ -33,7 +34,7 @@ export function postTemplate(postData) {
 
     const postTime = document.createElement("small");
     postTime.className = "text-muted";
-    postTime.textContent = postData.time;
+    postTime.textContent = timeSince(postData.created);
 
     const postContent = document.createElement("p");
     postContent.className = "card-text";
