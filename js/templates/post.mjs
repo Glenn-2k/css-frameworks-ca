@@ -24,6 +24,10 @@ export function postTemplate(postData) {
     postTitleContent.className = "d-flex align-items-center";
 
     const postImage = document.createElement("img");
+    if (postData.author.avatar === null || postData.author.avatar === "") {
+        postData.author.avatar = "/images/Night_sort-j.png";
+    }
+
     postImage.src = postData.author.avatar;
     postImage.className = "rounded-circle height-40";
     postImage.alt = "Profile Image";
