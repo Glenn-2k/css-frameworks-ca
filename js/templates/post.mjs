@@ -29,7 +29,7 @@ export function postTemplate(postData) {
     }
 
     postImage.src = postData.author.avatar;
-    postImage.className = "rounded-circle height-40";
+    postImage.className = "height-40 rounded-image";
     postImage.alt = "Profile Image";
 
     const postUsername = document.createElement("h5");
