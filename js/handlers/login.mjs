@@ -3,7 +3,7 @@ import { login } from "../api/auth/login.mjs";
 export function setLoginFormListener() {
     const form = document.querySelector('#loginForm');
     
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
         event.preventDefault();
         const form = event.target;
         const formData = new FormData(form);
@@ -12,5 +12,6 @@ export function setLoginFormListener() {
         
         // sending the profile object to the login function
         login(profile);
+        window.location.href = "/profile";
     });
 };
