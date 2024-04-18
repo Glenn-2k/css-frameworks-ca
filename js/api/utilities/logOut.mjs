@@ -1,14 +1,14 @@
 
 export function logOutFunction() {
 
-const logOutButton = document.getElementById("logOutButton");
+        const logOutButton = document.getElementById("logOutButton");
 
 
-function logOut() {
-    localStorage.clear();
-    window.location.href = "/";
-}
+        function logOut() {
+            localStorage.clear();
+            window.location.href = "/";
+        }
 
-logOutButton.addEventListener("click", logOut);
+        logOutButton.addEventListener("click", logOut);
 
 }
