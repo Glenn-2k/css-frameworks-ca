@@ -10,7 +10,13 @@ function appendChildren(parent, children) {
 export function postTemplate(postData) {
   console.log(postData);
   const post = document.createElement('div');
-  post.className = 'card border-dark mb-3 mx-auto';
+  post.className = 'card border-dark mb-3 mx-auto position-relative';
+
+  const trashIcon = document.createElement('i');
+  trashIcon.className = 'bi bi-trash3 trash-icon';
+
+  const editIcon = document.createElement('i');
+  editIcon.className = 'bi bi-pencil edit-icon';
 
   const postBody = document.createElement('div');
   postBody.className = 'card-body';
@@ -45,7 +51,7 @@ export function postTemplate(postData) {
 
   appendChildren(postTitleContent, [postImage, postUsername]);
   appendChildren(postTitle, [postTitleContent, postTime]);
-  appendChildren(postBody, [postTitle, postContent]);
+  appendChildren(postBody, [postTitle, postContent, trashIcon, editIcon]);
   post.appendChild(postBody);
 
   return post;
