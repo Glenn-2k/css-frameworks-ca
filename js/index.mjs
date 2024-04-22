@@ -18,7 +18,6 @@ if (path === '/' || path === '/index.html') {
   runPosts();
   createPost();
   // updatePost();
-  // deletePost();
   console.log('Feed page is initialized.');
   logOutFunction();
 } else if (path === '/profile/index.html' || path === '/profile/') {

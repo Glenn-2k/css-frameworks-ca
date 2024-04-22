@@ -1,6 +1,7 @@
 import * as post from '../api/posts/index.mjs';
 import { timeSince } from '../api/utilities/timeSince.mjs';
 import { removePost } from '../api/posts/delete.mjs';
+import { editPost } from '../api/posts/update.mjs';
 
 function appendChildren(parent, children) {
   children.forEach((child) => {
@@ -34,6 +35,7 @@ export function postTemplate(postData) {
 
   const editIcon = document.createElement('i');
   editIcon.className = 'bi bi-pencil edit-icon';
+  editIcon.onClick = () => editPost(postData.id);
 
   const postBody = document.createElement('div');
   postBody.className = 'card-body';
