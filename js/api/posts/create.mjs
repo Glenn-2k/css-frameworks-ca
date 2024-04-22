@@ -65,5 +65,8 @@ export function createPost() {
     } catch (error) {
       console.error('Error creating this post:', error);
     }
+    setTimeout(() => {
+      location.reload();
+    }, 500);
   });
 }
