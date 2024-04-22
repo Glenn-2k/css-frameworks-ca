@@ -47,7 +47,7 @@ export function postTemplate(postData) {
 
   const postContent = document.createElement('p');
   postContent.className = 'card-text';
-  postContent.textContent = postData.body;
+  postContent.textContent = postData.title;
 
   appendChildren(postTitleContent, [postImage, postUsername]);
   appendChildren(postTitle, [postTitleContent, postTime]);
