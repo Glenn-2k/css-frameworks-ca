@@ -27,6 +27,9 @@ export function postTemplate(postData) {
     } catch (error) {
       console.error(error);
     }
+    setTimeout(() => {
+      location.reload();
+    }, 300);
   });
 
   const editIcon = document.createElement('i');
