@@ -5,6 +5,7 @@ import * as post from './api/posts/index.mjs';
 import * as templates from './templates/index.mjs';
 import { logOutFunction } from './api/utilities/logOut.mjs';
 import { createPost } from './api/posts/create.mjs';
+import { updatePost } from './api/posts/update.mjs';
 
 const path = location.pathname;
 
@@ -16,6 +17,8 @@ if (path === '/' || path === '/index.html') {
 } else if (path === '/feed/index.html' || path === '/feed/') {
   runPosts();
   createPost();
+  // updatePost();
+  // deletePost();
   console.log('Feed page is initialized.');
   logOutFunction();
 } else if (path === '/profile/index.html' || path === '/profile/') {

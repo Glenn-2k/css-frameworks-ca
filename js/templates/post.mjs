@@ -1,5 +1,6 @@
 import * as post from '../api/posts/index.mjs';
 import { timeSince } from '../api/utilities/timeSince.mjs';
+import { removePost } from '../api/posts/delete.mjs';
 
 function appendChildren(parent, children) {
   children.forEach((child) => {
@@ -14,6 +15,19 @@ export function postTemplate(postData) {
 
   const trashIcon = document.createElement('i');
   trashIcon.className = 'bi bi-trash3 trash-icon';
+  trashIcon.addEventListener('click', async (event) => {
+    try {
+      const response = await removePost(postData.id);
+      if (response.ok) {
+        console.log('post deleted');
+        post.remove();
+      } else {
+        console.log('post not deleted');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  });
 
   const editIcon = document.createElement('i');
   editIcon.className = 'bi bi-pencil edit-icon';
