@@ -35,7 +35,32 @@ export function postTemplate(postData) {
 
   const editIcon = document.createElement('i');
   editIcon.className = 'bi bi-pencil edit-icon';
-  editIcon.onClick = () => editPost(postData.id);
+  editIcon.onclick = () => {
+    if (!postBody.querySelector('input, textarea')) {
+      const titleInput = document.createElement('input');
+      titleInput.value = postContent.textContent;
+      postContent.replaceWith(titleInput);
+
+      const saveButton = document.createElement('button');
+      saveButton.textContent = 'Save';
+      saveButton.onclick = async () => {
+        const updated = await editPost(
+          {
+            id: postData.id,
+            title: titleInput.value,
+          },
+          post
+        );
+        if (updated.ok) {
+          postContent.textContent = titleInput.value;
+          titleInput.replaceWith(postContent);
+        } else {
+          console.error('Failed to update post');
+        }
+      };
+      appendChildren(postBody, [saveButton]);
+    }
+  };
 
   const postBody = document.createElement('div');
   postBody.className = 'card-body';
@@ -87,16 +112,4 @@ export async function runPosts() {
 }
 
 {
-  /* <div class="card border-dark mb-3 mx-auto">
-<div class="card-body">
-  <div class="d-flex justify-content-between align-items-center mb-2">
-    <div class="d-flex align-items-center">
-      <img src="/images/Glenn-02.png" class="rounded-circle height-40" alt="Profile Image">
-      <h5 class="card-title mb-0 ms-2 fs-6 fw-bold">xBatman2k</h5>
-    </div>
-    <small class="text-muted">3h ago</small>
-  </div>
-  <p class="card-text">If you see a crime at an Apple Store, does that make you an iWitness?</p>
-</div>
-</div> */
 }

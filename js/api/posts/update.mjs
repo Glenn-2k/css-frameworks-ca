@@ -1,3 +1,4 @@
+import { save } from '../../storage/index.mjs';
 import { authFetch, headers } from '../authFetch.mjs';
 import { API_SOCIAL_URL } from '../constants.mjs';
 
@@ -18,21 +19,42 @@ export async function updatePost(postData) {
   return await response.json();
 }
 
-export function editPost(postData) {
-  const titleInput = document.createElement('input');
-  titleInput.value = postData.title;
+export function editPost(postData, post) {
+  if (!post) {
+    console.error('Post element not provided');
+    return;
+  }
+
   const bodyInput = document.createElement('textarea');
   bodyInput.value = postData.body;
+
+  const bodyDisplay = post.querySelector('.card-text');
+
   const saveButton = document.createElement('button');
-  saveButton.textContent = 'Save Changes';
-  saveButton.onclick = async () => {
-    const updatedData = {
-      ...postData,
-      title: titleInput.value,
-      body: bodyInput.value,
-    };
-    await updatePost(updatedData);
-    console.log('Post updated');
+  saveButton.textContent = 'Save';
+  saveButton.onclick = () => {
+    saveChanges(postData, post, bodyInput);
+    post.appendChild(saveButton);
+    post.replaceChild(bodyInput, bodyDisplay);
   };
-  // Setup your form elements in a modal or on the page
+}
+
+export function saveChanges(postData, post, bodyInput) {
+  const updatedData = {
+    ...postData,
+    body: bodyInput.value,
+  };
+  updatePost(updatedData).then((updated) => {
+    if (updated.ok) {
+      const bodyDisplay = document.createElement('div');
+      bodyDisplay.className = 'card-text';
+      bodyDisplay.textContent = bodyInput.value;
+      post.replaceChild(bodyDisplay, bodyInput);
+      const saveButton = post.querySelector('button[textContent="Save"]');
+      if (saveButton) saveButton.remove();
+      console.log('Post updated');
+    } else {
+      console.error('Failed to update post');
+    }
+  });
 }
