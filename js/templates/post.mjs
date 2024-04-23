@@ -2,6 +2,7 @@ import * as post from '../api/posts/index.mjs';
 import { timeSince } from '../api/utilities/timeSince.mjs';
 import { removePost } from '../api/posts/delete.mjs';
 import { editPost } from '../api/posts/update.mjs';
+import { save } from '../storage/index.mjs';
 
 function appendChildren(parent, children) {
   children.forEach((child) => {
@@ -37,11 +38,12 @@ export function postTemplate(postData) {
   editIcon.className = 'bi bi-pencil edit-icon';
   editIcon.onclick = () => {
     if (!postBody.querySelector('input, textarea')) {
-      const titleInput = document.createElement('input');
+      const titleInput = document.createElement('textarea');
       titleInput.value = postContent.textContent;
       postContent.replaceWith(titleInput);
 
       const saveButton = document.createElement('button');
+      saveButton.className = 'btn btn-primary w-25 mb-2';
       saveButton.textContent = 'Save';
       saveButton.id = 'saveButton';
       saveButton.onclick = async () => {
@@ -50,12 +52,6 @@ export function postTemplate(postData) {
           title: titleInput.value,
           body: postData.body,
         };
-        // await editPost({
-        //   id: postData.id,
-        //   title: titleInput.value,
-        // });
-        // saveChanges(postData, bodyDisplay, bodyInput);
-        // post.replaceChild(bodyInput, bodyDisplay);
         editPost(editData);
         if (editData.id) {
           postContent.textContent = titleInput.value;
