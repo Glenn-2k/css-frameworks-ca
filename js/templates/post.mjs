@@ -43,15 +43,21 @@ export function postTemplate(postData) {
 
       const saveButton = document.createElement('button');
       saveButton.textContent = 'Save';
+      saveButton.id = 'saveButton';
       saveButton.onclick = async () => {
-        const updated = await editPost(
-          {
-            id: postData.id,
-            title: titleInput.value,
-          },
-          post
-        );
-        if (updated.ok) {
+        const editData = {
+          id: postData.id,
+          title: titleInput.value,
+          body: postData.body,
+        };
+        // await editPost({
+        //   id: postData.id,
+        //   title: titleInput.value,
+        // });
+        // saveChanges(postData, bodyDisplay, bodyInput);
+        // post.replaceChild(bodyInput, bodyDisplay);
+        editPost(editData);
+        if (editData.id) {
           postContent.textContent = titleInput.value;
           titleInput.replaceWith(postContent);
         } else {

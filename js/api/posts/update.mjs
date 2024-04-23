@@ -1,5 +1,4 @@
-import { save } from '../../storage/index.mjs';
-import { authFetch, headers } from '../authFetch.mjs';
+import { authFetch } from '../authFetch.mjs';
 import { API_SOCIAL_URL } from '../constants.mjs';
 
 const action = '/posts';
@@ -19,38 +18,34 @@ export async function updatePost(postData) {
   return await response.json();
 }
 
-export function editPost(postData, post) {
-  if (!post) {
-    console.error('Post element not provided');
+export function editPost(postData) {
+  console.log('EditPost ble startet');
+  console.log(postData);
+  if (!postData) {
+    console.error('PostData element not provided');
     return;
   }
 
   const bodyInput = document.createElement('textarea');
-  bodyInput.value = postData.body;
+  bodyInput.value = postData.title;
 
-  const bodyDisplay = post.querySelector('.card-text');
-
-  const saveButton = document.createElement('button');
-  saveButton.textContent = 'Save';
-  saveButton.onclick = () => {
-    saveChanges(postData, post, bodyInput);
-    post.appendChild(saveButton);
-    post.replaceChild(bodyInput, bodyDisplay);
-  };
+  const bodyDisplay = document.querySelector('.card-text');
+  saveChanges(postData, bodyDisplay, bodyInput);
 }
 
-export function saveChanges(postData, post, bodyInput) {
+export async function saveChanges(postData, post, bodyInput) {
+  console.log('SaveChanges ble startet');
   const updatedData = {
     ...postData,
     body: bodyInput.value,
   };
-  updatePost(updatedData).then((updated) => {
-    if (updated.ok) {
+  await updatePost(updatedData).then(() => {
+    let status = 'ok';
+    if (status) {
       const bodyDisplay = document.createElement('div');
       bodyDisplay.className = 'card-text';
       bodyDisplay.textContent = bodyInput.value;
-      post.replaceChild(bodyDisplay, bodyInput);
-      const saveButton = post.querySelector('button[textContent="Save"]');
+      const saveButton = document.getElementById('saveButton');
       if (saveButton) saveButton.remove();
       console.log('Post updated');
     } else {
