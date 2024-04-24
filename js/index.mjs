@@ -6,6 +6,7 @@ import * as templates from './templates/index.mjs';
 import { logOutFunction } from './api/utilities/logOut.mjs';
 import { createPost } from './api/posts/create.mjs';
 import { updatePost } from './api/posts/update.mjs';
+import { searchBar } from './handlers/search.mjs';
 
 const path = location.pathname;
 
@@ -17,6 +18,7 @@ if (path === '/' || path === '/index.html') {
 } else if (path === '/feed/index.html' || path === '/feed/') {
   runPosts();
   createPost();
+  searchBar();
   // updatePost();
   console.log('Feed page is initialized.');
   logOutFunction();
