@@ -7,6 +7,7 @@ import { logOutFunction } from './api/utilities/logOut.mjs';
 import { createPost } from './api/posts/create.mjs';
 import { updatePost } from './api/posts/update.mjs';
 import { searchBar } from './handlers/search.mjs';
+import { filterPosts } from './handlers/filter.mjs';
 
 const path = location.pathname;
 
@@ -19,6 +20,7 @@ if (path === '/' || path === '/index.html') {
   runPosts();
   createPost();
   searchBar();
+  filterPosts();
   // updatePost();
   console.log('Feed page is initialized.');
   logOutFunction();

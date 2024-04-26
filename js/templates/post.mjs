@@ -107,10 +107,29 @@ export function renderPostTemplate(parent, postData) {
   parent.append(postTemplate(postData));
 }
 
+// checkboxComments.addEventListener('change', runPosts);
+// checkboxReactions.addEventListener('change', runPosts);
+
 export async function runPosts() {
   const posts = await post.getPosts();
   const container = document.querySelector('#postContainer');
-  posts.forEach((postData) => renderPostTemplate(container, postData));
+
+  const checkboxComments = document.getElementById('inlineCheckboxComments');
+  const checkboxReactions = document.getElementById('inlineCheckboxReactions');
+
+  container.innerHTML = '';
+  posts.forEach((postData) => {
+    const hasComments = checkboxComments.checked
+      ? postData.comments.length > 0
+      : true;
+    const hasReactions = checkboxReactions.checked
+      ? postData.reactions.length > 0
+      : true;
+
+    if (hasComments && hasReactions) {
+      renderPostTemplate(container, postData);
+    }
+  });
 }
 
 {
