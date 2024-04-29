@@ -8,6 +8,7 @@ import { createPost } from './api/posts/create.mjs';
 import { updatePost } from './api/posts/update.mjs';
 import { searchBar } from './handlers/search.mjs';
 import { filterPosts } from './handlers/filter.mjs';
+import { runSpecificPost } from './templates/specificPost.mjs';
 
 const path = location.pathname;
 
@@ -27,6 +28,10 @@ if (path === '/' || path === '/index.html') {
 } else if (path === '/profile/index.html' || path === '/profile/') {
   console.log('Profile page is initialized.');
   // window.confirm('You are now on the profile page.');
+  logOutFunction();
+} else if (path === '/post/index.html' || path === '/post/') {
+  runSpecificPost();
+  console.log('Specific post page is initialized.');
   logOutFunction();
 }
 
