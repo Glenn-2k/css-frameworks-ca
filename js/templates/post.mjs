@@ -15,6 +15,10 @@ export function postTemplate(postData) {
   const post = document.createElement('div');
   post.className = 'card border-dark mb-3 mx-auto position-relative';
 
+  post.addEventListener('click', () => {
+    window.location.href = `/post/index.html?id=${postData.id}`;
+  });
+
   const trashIcon = document.createElement('i');
   trashIcon.className = 'bi bi-trash3 trash-icon';
   trashIcon.addEventListener('click', async (event) => {
