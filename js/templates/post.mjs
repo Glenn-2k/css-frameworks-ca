@@ -15,10 +15,6 @@ export function postTemplate(postData) {
   const post = document.createElement('div');
   post.className = 'card border-dark mb-3 mx-auto position-relative';
 
-  post.addEventListener('click', () => {
-    window.location.href = `/post/index.html?id=${postData.id}`;
-  });
-
   const trashIcon = document.createElement('i');
   trashIcon.className = 'bi bi-trash3 trash-icon';
   trashIcon.addEventListener('click', async (event) => {
@@ -74,6 +70,9 @@ export function postTemplate(postData) {
   const postTitle = document.createElement('div');
   postTitle.className =
     'd-flex justify-content-between align-items-center mb-2';
+  postTitle.addEventListener('click', () => {
+    window.location.href = `/post/index.html?id=${postData.id}`;
+  });
 
   const postTitleContent = document.createElement('div');
   postTitleContent.className = 'd-flex align-items-center';
