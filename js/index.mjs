@@ -10,7 +10,8 @@ import { searchBar } from './handlers/search.mjs';
 import { filterPosts } from './handlers/filter.mjs';
 import { runSpecificPost } from './templates/specificPost.mjs';
 import { getProfile } from './api/profiles/read.mjs';
-import { renderProfile } from './api/profiles/profileTemplate.mjs';
+import { renderProfile } from './api/profiles/renderProfile.mjs';
+// import { renderProfile } from './api/profiles/profileTemplate.mjs';
 
 const path = location.pathname;
 

@@ -36,7 +36,7 @@ export async function profileTemplate(profile) {
 
   const profileName = document.createElement('p');
   profileName.classList.add('col-12', 'text-white', 'fs-5', 'fw-light');
-  profileName.textContent = `@${profile.name}`;
+  profileName.textContent = `@${profile.username}`;
 
   const followers = document.createElement('p');
   followers.classList.add('col-6', 'mt-5');
@@ -77,11 +77,11 @@ export async function profileTemplate(profile) {
   profileSection.appendChild(profileImage);
   profileSection.appendChild(profileInfo);
 
-  profileContainer.appendChild(profileSection);
+  // profileContainer.appendChild(profileSection);
 
   console.log(profile);
 
-  return profile;
+  return profileSection;
 }
 
 //   <section class="row">

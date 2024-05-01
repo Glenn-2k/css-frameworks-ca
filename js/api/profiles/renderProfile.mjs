@@ -1,23 +1,26 @@
-import { profileTemplate } from "./profileTemplate.mjs";
+import { profileTemplate } from './profileTemplate.mjs';
+import { getProfile } from './read.mjs';
 
 export async function renderProfile() {
+  try {
+    const url = new URL(window.location.href);
+    const profileName = url.searchParams.get('name');
+    console.log(profileName);
 
-    try {
-        const url = new URL(window.location.href);
-        const profile = url.searchParams.get('name');
-        console.log(profile);
+    const profileData = await getProfile(profileName);
+    console.log(profileData);
 
-        const profileData = await getProfile(profile);
-        console.log(profileData);
+    if (profileData) {
+      const container = document.getElementById('profileContainer');
+      if (!container) {
+        console.log('No profile container found');
+        return;
+      }
 
-        if (profileData) {
-            const container = document.getElementById('#profileContainer');
-            const profileElement = profileTemplate(profileData);
-            container.appendChild(profileElement);
-
-            
-            
-        }
-
-
+      const profileElement = profileTemplate(profileData);
+      container.append(profileElement);
     }
+  } catch (error) {
+    console.error(error);
+  }
+}
