@@ -11,7 +11,6 @@ import { filterPosts } from './handlers/filter.mjs';
 import { runSpecificPost } from './templates/specificPost.mjs';
 import { getProfile } from './api/profiles/read.mjs';
 import { renderProfile } from './api/profiles/renderProfile.mjs';
-// import { renderProfile } from './api/profiles/profileTemplate.mjs';
 
 const path = location.pathname;
 
@@ -29,8 +28,8 @@ if (path === '/' || path === '/index.html') {
   console.log('Feed page is initialized.');
   logOutFunction();
 } else if (path === '/profile/index.html' || path === '/profile/') {
-  getProfile();
   renderProfile();
+  // getProfile();
   console.log('Profile page is initialized.');
   // window.confirm('You are now on the profile page.');
   logOutFunction();

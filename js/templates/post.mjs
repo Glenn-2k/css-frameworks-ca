@@ -86,9 +86,18 @@ export function postTemplate(postData) {
   postImage.className = 'height-40 rounded-image';
   postImage.alt = 'Profile Image';
 
+  postImage.addEventListener('click', async (event) => {
+    event.stopPropagation();
+    window.location.href = `/profile/?name=${postData.author.name}`;
+  });
+
   const postUsername = document.createElement('h5');
   postUsername.className = 'card-title mb-0 ms-2 fs-6 fw-bold';
   postUsername.textContent = postData.author.name;
+  postUsername.addEventListener('click', async (event) => {
+    event.stopPropagation();
+    window.location.href = `/profile/?name=${postData.author.name}`;
+  });
 
   const postTime = document.createElement('small');
   postTime.className = 'text-muted';
