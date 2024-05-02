@@ -19,7 +19,7 @@ export async function profileTemplate(profile) {
     profile.banner === '' ||
     profile.banner === undefined
   ) {
-    coverImage.src = '/images/social_media_banner_1240x376.png';
+    coverImage.src = '../images/banner-placeholder.jpg';
   }
   coverImage.classList.add('img-fluid', 'rounded');
   coverImage.alt = 'cover';
@@ -39,7 +39,7 @@ export async function profileTemplate(profile) {
     profile.avatar === '' ||
     profile.avatar === undefined
   ) {
-    profilePic.src = '/images/Glenn-02.png';
+    profilePic.src = '../images/placeholderavatar.jpg';
   }
   profilePic.classList.add('rounded-image-profile', 'img-thumbnail');
   profilePic.alt = 'profile picture';

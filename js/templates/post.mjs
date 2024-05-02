@@ -79,7 +79,7 @@ export function postTemplate(postData) {
 
   const postImage = document.createElement('img');
   if (postData.author.avatar === null || postData.author.avatar === '') {
-    postData.author.avatar = '/images/Night_sort-j.png';
+    postData.author.avatar = '../images/placeholderavatar.jpg';
   }
 
   postImage.src = postData.author.avatar;
