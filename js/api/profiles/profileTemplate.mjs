@@ -14,11 +14,23 @@ export async function profileTemplate(profile) {
 
   const coverImage = document.createElement('img');
   coverImage.src = `${profile.banner}`;
-  if (profile.banner === null) {
+  if (
+    profile.banner === null ||
+    profile.banner === '' ||
+    profile.banner === undefined
+  ) {
     coverImage.src = '/images/social_media_banner_1240x376.png';
   }
   coverImage.classList.add('img-fluid', 'rounded');
   coverImage.alt = 'cover';
+
+  const profilePicSquare = document.createElement('div');
+  profilePicSquare.classList.add(
+    'position-absolute',
+    'profile-pic',
+    'ratio',
+    'ratio-1x1'
+  );
 
   const profilePic = document.createElement('img');
   profilePic.src = `${profile.avatar}`;
@@ -29,16 +41,12 @@ export async function profileTemplate(profile) {
   ) {
     profilePic.src = '/images/Glenn-02.png';
   }
-  profilePic.classList.add(
-    'rounded-image',
-    'position-absolute',
-    'img-thumbnail',
-    'profile-pic'
-  );
+  profilePic.classList.add('rounded-image', 'img-thumbnail');
   profilePic.alt = 'profile picture';
 
+  profilePicSquare.appendChild(profilePic);
   profileImage.appendChild(coverImage);
-  profileImage.appendChild(profilePic);
+  profileImage.appendChild(profilePicSquare);
 
   const profileInfo = document.createElement('section');
   profileInfo.classList.add('container');
