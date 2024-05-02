@@ -44,10 +44,18 @@ h5 {
   height: 40px;
 }
 
-.rounded-image {
+.rounded-image-profile {
   border-radius: 50%;
   min-width: 40px;
   min-height: 40px;
+  object-fit: cover;
+  display: block;
+}
+
+.rounded-image {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
   object-fit: cover;
   display: block;
 }

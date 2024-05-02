@@ -41,7 +41,7 @@ export async function profileTemplate(profile) {
   ) {
     profilePic.src = '/images/Glenn-02.png';
   }
-  profilePic.classList.add('rounded-image', 'img-thumbnail');
+  profilePic.classList.add('rounded-image-profile', 'img-thumbnail');
   profilePic.alt = 'profile picture';
 
   profilePicSquare.appendChild(profilePic);
