@@ -10,16 +10,15 @@ export async function renderProfile() {
     const profileData = await getProfile(profileName);
     console.log(profileData);
 
-    if (profileData) {
-      const container = document.getElementById('profileContainer');
-      if (!container) {
-        console.log('No profile container found');
-        return;
-      }
+    const container = document.getElementById('profileContainer');
+    // if (profileData) {
+    //   if (!container) {
+    //     console.log('No profile container found');
+    //     return;
+    //
 
-      const profileElement = profileTemplate(profileData);
-      container.append(profileElement);
-    }
+    const profileElement = await profileTemplate(profileData);
+    container.prepend(profileElement);
   } catch (error) {
     console.error(error);
   }

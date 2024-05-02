@@ -1,4 +1,6 @@
 export async function profileTemplate(profile) {
+  console.log(profile, 'this is the profile template');
+
   const profileSection = document.createElement('section');
   profileSection.classList.add('row');
 
@@ -11,14 +13,24 @@ export async function profileTemplate(profile) {
   );
 
   const coverImage = document.createElement('img');
-  coverImage.src = '/images/social_media_banner_1240x376.png';
+  coverImage.src = `${profile.banner}`;
+  if (profile.banner === null) {
+    coverImage.src = '/images/social_media_banner_1240x376.png';
+  }
   coverImage.classList.add('img-fluid', 'rounded');
   coverImage.alt = 'cover';
 
   const profilePic = document.createElement('img');
-  profilePic.src = '/images/Glenn-02.png';
+  profilePic.src = `${profile.avatar}`;
+  if (
+    profile.avatar === null ||
+    profile.avatar === '' ||
+    profile.avatar === undefined
+  ) {
+    profilePic.src = '/images/Glenn-02.png';
+  }
   profilePic.classList.add(
-    'rounded-circle',
+    'rounded-image',
     'position-absolute',
     'img-thumbnail',
     'profile-pic'
@@ -36,15 +48,15 @@ export async function profileTemplate(profile) {
 
   const profileName = document.createElement('p');
   profileName.classList.add('col-12', 'text-white', 'fs-5', 'fw-light');
-  profileName.textContent = `@${profile.username}`;
+  profileName.textContent = `@${profile.name}`;
 
   const followers = document.createElement('p');
   followers.classList.add('col-6', 'mt-5');
-  followers.textContent = `${profile.followers} Followers`;
+  followers.textContent = `${profile._count.followers} Followers`;
 
   const following = document.createElement('p');
   following.classList.add('col-6', 'mt-5');
-  following.textContent = `${profile.following} Following`;
+  following.textContent = `${profile._count.following} Following`;
 
   const bioHeader = document.createElement('h2');
   bioHeader.classList.add(
@@ -58,7 +70,7 @@ export async function profileTemplate(profile) {
 
   const bio = document.createElement('p');
   bio.classList.add('col-12', 'fw-light', 'fs-6', 'mt-1');
-  bio.textContent = profile.bio;
+  bio.textContent = 'Noroff dont provide bio data, so this is a placeholder';
 
   const followButton = document.createElement('button');
   followButton.type = 'button';
@@ -78,8 +90,6 @@ export async function profileTemplate(profile) {
   profileSection.appendChild(profileInfo);
 
   // profileContainer.appendChild(profileSection);
-
-  console.log(profile);
 
   return profileSection;
 }
