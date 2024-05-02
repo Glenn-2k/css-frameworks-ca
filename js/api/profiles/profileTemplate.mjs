@@ -72,17 +72,22 @@ export async function profileTemplate(profile) {
   bio.classList.add('col-12', 'fw-light', 'fs-6', 'mt-1');
   bio.textContent = 'Noroff dont provide bio data, so this is a placeholder';
 
+  const buttonDiv = document.createElement('div');
+
   const followButton = document.createElement('button');
   followButton.type = 'button';
   followButton.classList.add('btn', 'btn-secondary');
   followButton.textContent = 'Follow';
+
+  buttonDiv.appendChild(followButton);
 
   profileRow.appendChild(profileName);
   profileRow.appendChild(followers);
   profileRow.appendChild(following);
   profileRow.appendChild(bioHeader);
   profileRow.appendChild(bio);
-  profileRow.appendChild(followButton);
+  profileRow.appendChild(buttonDiv);
+  // profileRow.appendChild(followButton);
 
   profileInfo.appendChild(profileRow);
 
