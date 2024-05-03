@@ -3,6 +3,7 @@ import { timeSince } from '../api/utilities/timeSince.mjs';
 import { removePost } from '../api/posts/delete.mjs';
 import { editPost } from '../api/posts/update.mjs';
 import { save } from '../storage/index.mjs';
+import { reactionToPost } from '../api/posts/react.mjs';
 
 function appendChildren(parent, children) {
   children.forEach((child) => {
@@ -14,6 +15,26 @@ export function postTemplate(postData) {
   console.log(postData);
   const post = document.createElement('div');
   post.className = 'card border-dark mb-3 mx-auto position-relative';
+
+  const likeIcon = document.createElement('i');
+  likeIcon.className = 'bi bi-heart-fill like-icon';
+  likeIcon.addEventListener('click', async (event) => {
+    // const reaction = {
+    //   type: 'like',
+    //   post: postData.id,
+    // };
+
+    const response = await reactionToPost(postData.id);
+    console.log(postData.id);
+    if (response.ok) {
+      console.log('reaction saved');
+    } else {
+      console.error('reaction not saved');
+    }
+    setTimeout(() => {
+      // location.reload();
+    }, 300);
+  });
 
   const trashIcon = document.createElement('i');
   trashIcon.className = 'bi bi-trash3 trash-icon';
@@ -109,7 +130,13 @@ export function postTemplate(postData) {
 
   appendChildren(postTitleContent, [postImage, postUsername]);
   appendChildren(postTitle, [postTitleContent, postTime]);
-  appendChildren(postBody, [postTitle, postContent, trashIcon, editIcon]);
+  appendChildren(postBody, [
+    postTitle,
+    postContent,
+    trashIcon,
+    editIcon,
+    likeIcon,
+  ]);
   post.appendChild(postBody);
 
   return post;
