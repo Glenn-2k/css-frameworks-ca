@@ -15,3 +15,18 @@ export async function authFetch(url, options = {}) {
     headers: headers(),
   });
 }
+
+export function reactionHeaders() {
+  const token = load('token');
+
+  return {
+    authorization: `Bearer ${token}`,
+  };
+}
+
+export async function reactionAuthFetch(url, options = {}) {
+  return fetch(url, {
+    ...options,
+    headers: reactionHeaders(),
+  });
+}

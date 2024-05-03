@@ -32,7 +32,7 @@ export function postTemplate(postData) {
       console.error('reaction not saved');
     }
     setTimeout(() => {
-      // location.reload();
+      location.reload();
     }, 300);
   });
 
