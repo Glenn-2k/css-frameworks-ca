@@ -2,7 +2,6 @@ import * as post from '../api/posts/index.mjs';
 import { timeSince } from '../api/utilities/timeSince.mjs';
 import { removePost } from '../api/posts/delete.mjs';
 import { editPost } from '../api/posts/update.mjs';
-import { save } from '../storage/index.mjs';
 import { reactionToPost } from '../api/posts/react.mjs';
 
 function appendChildren(parent, children) {
