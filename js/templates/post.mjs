@@ -17,13 +17,8 @@ export function postTemplate(postData) {
   post.className = 'card border-dark mb-3 mx-auto position-relative';
 
   const likeIcon = document.createElement('i');
-  likeIcon.className = 'bi bi-heart-fill like-icon';
+  likeIcon.className = 'bi bi-heart like-icon';
   likeIcon.addEventListener('click', async (event) => {
-    // const reaction = {
-    //   type: 'like',
-    //   post: postData.id,
-    // };
-
     const response = await reactionToPost(postData.id);
     console.log(postData.id);
     if (response.ok) {
