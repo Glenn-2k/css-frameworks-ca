@@ -119,9 +119,6 @@ export function renderPostTemplate(parent, postData) {
   parent.append(postTemplate(postData));
 }
 
-// checkboxComments.addEventListener('change', runPosts);
-// checkboxReactions.addEventListener('change', runPosts);
-
 export async function runPosts() {
   const posts = await post.getPosts();
   const container = document.querySelector('#postContainer');
