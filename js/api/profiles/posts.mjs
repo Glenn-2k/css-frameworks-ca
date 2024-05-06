@@ -11,7 +11,7 @@ function appendChildren(parent, children) {
 }
 
 export function profilePostTemplate(postData) {
-  // console.log(postData);
+  console.log(postData);
 
   const post = document.createElement('div');
   post.className = 'card border-dark mb-3 mx-auto position-relative';
@@ -94,11 +94,11 @@ export function profilePostTemplate(postData) {
   postTitleContent.className = 'd-flex align-items-center';
 
   const postImage = document.createElement('img');
-  if (postData.avatar === null || postData.avatar === '') {
-    postData.avatar = '../images/placeholderavatar.jpg';
+  if (postData.author.avatar === null || postData.author.avatar === '') {
+    postData.author.avatar = '../images/placeholderavatar.jpg';
   }
 
-  postImage.src = postData.avatar;
+  postImage.src = postData.author.avatar;
   postImage.className = 'height-40 rounded-image';
   postImage.alt = 'Profile Image';
 
