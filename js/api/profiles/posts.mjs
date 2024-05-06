@@ -11,7 +11,7 @@ function appendChildren(parent, children) {
 }
 
 export function profilePostTemplate(postData) {
-  console.log(postData);
+  // console.log(postData);
 
   const post = document.createElement('div');
   post.className = 'card border-dark mb-3 mx-auto position-relative';
@@ -141,8 +141,9 @@ export function renderPostTemplate(parent, postData) {
   parent.append(postTemplate(postData));
 }
 
-export async function runProfilePosts() {
-  const posts = await getProfilePosts();
+export async function runProfilePosts(profileName) {
+  // console.log(postData, 'this is the postData');
+  const posts = await getProfilePosts(profileName);
   const postsSection = document.getElementById('profileContainer');
 
   postsSection.innerHTML = '';

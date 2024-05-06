@@ -1,5 +1,6 @@
 import { profileTemplate } from './profileTemplate.mjs';
 import { getProfile } from './read.mjs';
+import { profilePostTemplate } from './posts.mjs';
 
 export async function renderProfile() {
   try {
@@ -16,3 +17,14 @@ export async function renderProfile() {
     console.error(error);
   }
 }
+
+// export async function runProfilePosts() {
+//   const userName = postData.author.name;
+//   const loggedInUser = localStorage.getItem('profile');
+//   const loggedInUserName = JSON.parse(loggedInUser).name;
+//   const userPost = await getProfilePosts();
+
+//   if (userName === loggedInUserName) {
+//     profilePostTemplate(userPost);
+//   }
+// }
