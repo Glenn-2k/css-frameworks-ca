@@ -11,8 +11,8 @@ const method = 'GET';
 const profileNameInput = '?name=';
 const author = '?_author=true&_comments=true&_reactions=true';
 
-export async function getProfile(profileName) {
-  const getProfileURL = `${API_SOCIAL_URL}${action}/${profileName}`;
+export async function getProfile() {
+  const getProfileURL = `${API_SOCIAL_URL}${action}/${name}`;
   const response = await authFetch(getProfileURL, {
     method,
   });
