@@ -16,7 +16,7 @@ export async function authFetch(url, options = {}) {
   });
 }
 
-export async function reactionHeaders() {
+export function reactionHeaders() {
   const token = load('token');
 
   return {

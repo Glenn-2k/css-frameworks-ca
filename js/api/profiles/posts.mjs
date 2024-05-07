@@ -109,7 +109,7 @@ export function profilePostTemplate(postData) {
 
   const postUsername = document.createElement('h5');
   postUsername.className = 'card-title mb-0 ms-2 fs-6 fw-bold';
-  postUsername.textContent = postData.name;
+  postUsername.textContent = postData.author.name;
   postUsername.addEventListener('click', async (event) => {
     event.stopPropagation();
     window.location.href = `/profile/?name=${postData.name}`;
@@ -121,7 +121,7 @@ export function profilePostTemplate(postData) {
 
   const postContent = document.createElement('p');
   postContent.className = 'card-text';
-  postContent.textContent = postData.title;
+  postContent.textContent = postData.body;
 
   appendChildren(postTitleContent, [postImage, postUsername]);
   appendChildren(postTitle, [postTitleContent, postTime]);
