@@ -21,7 +21,7 @@ export async function profileTemplate(profile) {
   ) {
     coverImage.src = '../images/banner-placeholder.jpg';
   }
-  coverImage.classList.add('img-fluid', 'rounded');
+  coverImage.classList.add('img-fluid', 'rounded', 'banner-image');
   coverImage.alt = 'cover';
 
   const profilePicSquare = document.createElement('div');
