@@ -84,8 +84,17 @@ export async function profileTemplate(profile) {
 
   const followButton = document.createElement('button');
   followButton.type = 'button';
-  followButton.classList.add('btn', 'btn-secondary');
+  followButton.classList.add('btn', 'btn-secondary', 'mb-5');
   followButton.textContent = 'Follow';
+
+  const latest = document.createElement('div');
+  latest.classList.add('col-2', 'col-md-4', 'col-sm-12');
+
+  const latestPosts = document.createElement('h2');
+  latestPosts.classList.add('text-uppercase', 'fs-6');
+  latestPosts.textContent = 'Latest posts';
+
+  latest.appendChild(latestPosts);
 
   buttonDiv.appendChild(followButton);
 
@@ -95,6 +104,8 @@ export async function profileTemplate(profile) {
   profileRow.appendChild(bioHeader);
   profileRow.appendChild(bio);
   profileRow.appendChild(buttonDiv);
+
+  profileRow.appendChild(latest);
   // profileRow.appendChild(followButton);
 
   profileInfo.appendChild(profileRow);
@@ -105,6 +116,12 @@ export async function profileTemplate(profile) {
   // profileContainer.appendChild(profileSection);
 
   return profileSection;
+}
+
+{
+  /* <div class="col-2 col-md-4 col-sm-12">
+<h2 class="text-uppercase fs-6">Latest posts</h2>
+</div> */
 }
 
 //   <section class="row">
