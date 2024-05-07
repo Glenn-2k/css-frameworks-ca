@@ -1,7 +1,7 @@
 export async function profileTemplate(profile) {
   console.log(profile, 'this is the profile template');
 
-  const profileSection = document.createElement('section');
+  const profileSection = document.createElement('div');
   profileSection.classList.add('row');
 
   const profileImage = document.createElement('div');

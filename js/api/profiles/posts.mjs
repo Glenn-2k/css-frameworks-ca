@@ -144,11 +144,12 @@ export function renderPostTemplate(parent, postData) {
 export async function runProfilePosts(profileName) {
   // console.log(postData, 'this is the postData');
   const posts = await getProfilePosts(profileName);
-  const postsSection = document.getElementById('profileContainer');
+  const postsSection = document.getElementById('profilePosts');
 
   postsSection.innerHTML = '';
   await posts.forEach((postData) => {
     const postElement = profilePostTemplate(postData);
+
     postsSection.appendChild(postElement);
   });
 }
