@@ -21,11 +21,6 @@ export function profilePostTemplate(postData) {
   likeIcon.addEventListener('click', async (event) => {
     const response = await reactionToPost(postData.id);
     console.log(postData.id);
-    if (response.ok) {
-      console.log('reaction saved');
-    } else {
-      console.error('reaction not saved');
-    }
     setTimeout(() => {
       location.reload();
     }, 300);
