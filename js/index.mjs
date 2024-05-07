@@ -12,6 +12,7 @@ import { runSpecificPost } from './templates/specificPost.mjs';
 import { getProfile } from './api/profiles/read.mjs';
 import { renderProfile } from './api/profiles/renderProfile.mjs';
 import { runProfilePosts } from './api/profiles/posts.mjs';
+import { updateProfileLink } from './api/utilities/updateProfileLink.mjs';
 
 const path = location.pathname;
 
@@ -25,19 +26,16 @@ if (path === '/' || path === '/index.html') {
   createPost();
   searchBar();
   filterPosts();
-  // updatePost();
-  console.log('Feed page is initialized.');
+  updateProfileLink();
   logOutFunction();
 } else if (path === '/profile/index.html' || path === '/profile/') {
   renderProfile();
   runProfilePosts();
-  // getProfile();
-  console.log('Profile page is initialized.');
-  // window.confirm('You are now on the profile page.');
+  updateProfileLink();
   logOutFunction();
 } else if (path === '/post/index.html' || path === '/post/') {
   runSpecificPost();
-  console.log('Specific post page is initialized.');
+  updateProfileLink();
   logOutFunction();
 }
 
