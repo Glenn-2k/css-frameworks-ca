@@ -18,6 +18,7 @@ export function profilePostTemplate(postData) {
 
   const likeIcon = document.createElement('i');
   likeIcon.className = 'bi bi-heart like-icon';
+  likeIcon.textContent = postData.reactions.length;
   likeIcon.addEventListener('click', async (event) => {
     const response = await reactionToPost(postData.id);
     console.log(postData.id);
