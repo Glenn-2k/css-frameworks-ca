@@ -1,3 +1,20 @@
+/**
+ * Converts a date string into a human-readable relative time description.
+ *
+ * @param {string} dateString - The date string to convert, in ISO 8601 format.
+ * @returns {string} A string representing how much time has passed since the given date.
+ *
+ * @example
+ * // If the current date is "2023-05-07T12:00:00Z"
+ * const result = timeSince("2023-05-07T08:00:00Z");
+ * console.log(result); // Outputs "4 hours ago"
+ *
+ * @example
+ * // If the current date is "2024-05-07T12:00:00Z"
+ * const result = timeSince("2023-05-07T12:00:00Z");
+ * console.log(result); // Outputs "1 year ago"
+ */
+
 export function timeSince(dateString) {
   const date = new Date(dateString);
   const now = new Date();
