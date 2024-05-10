@@ -26,8 +26,4 @@ export function setLoginFormListener() {
       }
     });
   }
-
-  // sending the profile object to the login function
-  // login(profile);
-  // window.location.href = '/profile';
 }
