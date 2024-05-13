@@ -16,6 +16,8 @@ export function profilePostTemplate(postData) {
   const post = document.createElement('div');
   post.className = 'card border-dark mb-3 mx-auto position-relative';
 
+  // like icon //
+
   const likeIcon = document.createElement('i');
   likeIcon.className = 'bi bi-heart like-icon';
   likeIcon.textContent = postData.reactions.length;
@@ -27,7 +29,22 @@ export function profilePostTemplate(postData) {
     }, 300);
   });
 
+  // Thrashcan icon //
+
   const trashIcon = document.createElement('i');
+
+  const authorName = postData.author.name;
+  const storageName = localStorage.getItem('profile');
+  const parsedName = JSON.parse(storageName);
+
+  const loggedInUserName = parsedName ? parsedName.name : null;
+
+  if (authorName !== loggedInUserName) {
+    trashIcon.style.display = 'none';
+  } else {
+    trashIcon.style.display = 'block';
+  }
+
   trashIcon.className = 'bi bi-trash3 trash-icon';
   trashIcon.addEventListener('click', async (event) => {
     try {
@@ -46,7 +63,16 @@ export function profilePostTemplate(postData) {
     }, 300);
   });
 
+  // Edit icon //
+
   const editIcon = document.createElement('i');
+
+  if (authorName !== loggedInUserName) {
+    editIcon.style.display = 'none';
+  } else {
+    editIcon.style.display = 'block';
+  }
+
   editIcon.className = 'bi bi-pencil edit-icon';
   editIcon.onclick = () => {
     if (!postBody.querySelector('input, textarea')) {

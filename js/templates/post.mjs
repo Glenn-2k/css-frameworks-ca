@@ -14,6 +14,8 @@ export function postTemplate(postData) {
   const post = document.createElement('div');
   post.className = 'card border-dark mb-3 mx-auto position-relative';
 
+  // like icon //
+
   const likeIcon = document.createElement('i');
   likeIcon.className = 'bi bi-heart like-icon';
   likeIcon.textContent = postData.reactions.length;
@@ -30,13 +32,17 @@ export function postTemplate(postData) {
     }, 300);
   });
 
+  // Thrashcan icon //
+
   const trashIcon = document.createElement('i');
 
   const authorName = postData.author.name;
-  const storageName = localStorage.getItem('name');
-  const parseName = JSON.parse(storageName);
+  const storageName = localStorage.getItem('profile');
+  const parsedName = JSON.parse(storageName);
 
-  if (authorName !== parseName) {
+  const loggedInUserName = parsedName ? parsedName.name : null;
+
+  if (authorName !== loggedInUserName) {
     trashIcon.style.display = 'none';
   } else {
     trashIcon.style.display = 'block';
@@ -59,7 +65,16 @@ export function postTemplate(postData) {
     }, 300);
   });
 
+  // Edit button/icon  //
+
   const editIcon = document.createElement('i');
+
+  if (authorName !== loggedInUserName) {
+    editIcon.style.display = 'none';
+  } else {
+    editIcon.style.display = 'block';
+  }
+
   editIcon.className = 'bi bi-pencil edit-icon';
   editIcon.onclick = () => {
     if (!postBody.querySelector('input, textarea')) {
