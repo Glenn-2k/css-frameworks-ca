@@ -11,7 +11,6 @@ function appendChildren(parent, children) {
 }
 
 export function postTemplate(postData) {
-  console.log(postData);
   const post = document.createElement('div');
   post.className = 'card border-dark mb-3 mx-auto position-relative';
 
@@ -32,6 +31,16 @@ export function postTemplate(postData) {
   });
 
   const trashIcon = document.createElement('i');
+
+  const authorName = postData.author.name;
+  const storageName = localStorage.getItem('name');
+  const parseName = JSON.parse(storageName);
+
+  if (authorName !== parseName) {
+    trashIcon.style.display = 'none';
+  } else {
+    trashIcon.style.display = 'block';
+  }
   trashIcon.className = 'bi bi-trash3 trash-icon';
   trashIcon.addEventListener('click', async (event) => {
     try {

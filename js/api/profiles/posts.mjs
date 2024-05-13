@@ -138,7 +138,6 @@ export function renderPostTemplate(parent, postData) {
 }
 
 export async function runProfilePosts(profileName) {
-  // console.log(postData, 'this is the postData');
   const posts = await getProfilePosts(profileName);
   const postsSection = document.getElementById('profilePosts');
 
