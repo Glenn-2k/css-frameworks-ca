@@ -23,6 +23,11 @@ export function setLoginFormListener() {
         }
       } catch (error) {
         console.error(error);
+
+        const errorToast = new bootstrap.Toast(
+          document.getElementById('errorToast')
+        );
+        errorToast.show();
       }
     });
   }
