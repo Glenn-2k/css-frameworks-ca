@@ -17,7 +17,7 @@ export function postTemplate(postData) {
   // like icon //
 
   const likeIcon = document.createElement('i');
-  likeIcon.className = 'bi bi-heart like-icon';
+  likeIcon.className = 'bi bi-heart like-icon pointer-cursor';
   likeIcon.textContent = postData.reactions.length;
   likeIcon.addEventListener('click', async (event) => {
     const response = await reactionToPost(postData.id);
@@ -47,7 +47,7 @@ export function postTemplate(postData) {
   } else {
     trashIcon.style.display = 'block';
   }
-  trashIcon.className = 'bi bi-trash3 trash-icon';
+  trashIcon.className = 'bi bi-trash3 trash-icon pointer-cursor';
   trashIcon.addEventListener('click', async (event) => {
     try {
       const response = await removePost(postData.id);
@@ -75,7 +75,7 @@ export function postTemplate(postData) {
     editIcon.style.display = 'block';
   }
 
-  editIcon.className = 'bi bi-pencil edit-icon';
+  editIcon.className = 'bi bi-pencil edit-icon pointer-cursor';
   editIcon.onclick = () => {
     if (!postBody.querySelector('input, textarea')) {
       const titleInput = document.createElement('textarea');
@@ -109,7 +109,7 @@ export function postTemplate(postData) {
 
   const postTitle = document.createElement('div');
   postTitle.className =
-    'd-flex justify-content-between align-items-center mb-2';
+    'd-flex justify-content-between align-items-center mb-2 pointer-cursor';
   postTitle.addEventListener('click', () => {
     window.location.href = `/post/index.html?id=${postData.id}`;
   });
