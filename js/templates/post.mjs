@@ -80,6 +80,7 @@ export function postTemplate(postData) {
     if (!postBody.querySelector('input, textarea')) {
       const titleInput = document.createElement('textarea');
       titleInput.value = postContent.textContent;
+      titleInput.className = 'form-control mb-2 border-dark';
       postContent.replaceWith(titleInput);
 
       const saveButton = document.createElement('button');
