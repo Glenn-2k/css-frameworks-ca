@@ -6,5 +6,4 @@ export function filterPosts() {
 
   checkboxComments.addEventListener('change', runPosts);
   checkboxReactions.addEventListener('change', runPosts);
-  console.log('Filtering posts.');
 }
