@@ -21,7 +21,6 @@ export function postTemplate(postData) {
   likeIcon.textContent = postData.reactions.length;
   likeIcon.addEventListener('click', async (event) => {
     const response = await reactionToPost(postData.id);
-    console.log(postData.id);
     if (response.ok) {
       console.log('reaction saved');
     } else {
