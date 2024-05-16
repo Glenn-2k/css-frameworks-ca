@@ -1,10 +1,13 @@
 /**
- * Attaches an event listener to a logout button that clears the local storage and redirects the user to the homepage.
+ * Attaches a logout functionality to a button with the ID 'logOutButton'.
+ * When the button is clicked, it clears the local storage and redirects the user to the home page.
  *
  * @example
- * // Assuming there is a button with id 'logOutButton' in your HTML
+ * // HTML:
+ * // <button id="logOutButton">Log Out</button>
+ *
+ * // JavaScript:
  * logOutFunction();
- * // Clicking the 'logOutButton' will clear the local storage and redirect to the homepage ('/').
  */
 
 export function logOutFunction() {
