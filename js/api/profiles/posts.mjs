@@ -11,8 +11,6 @@ function appendChildren(parent, children) {
 }
 
 export function profilePostTemplate(postData) {
-  console.log(postData);
-
   const post = document.createElement('div');
   post.className = 'card border-dark mb-3 mx-auto position-relative';
 
