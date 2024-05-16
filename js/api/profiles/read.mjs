@@ -1,5 +1,4 @@
 import { authFetch } from '../authFetch.mjs';
-import { reactionAuthFetch } from '../authFetch.mjs';
 import { API_SOCIAL_URL } from '../constants.mjs';
 
 const queryString = document.location.search;
@@ -22,8 +21,6 @@ export async function getProfile() {
 
 export async function getProfilePosts() {
   const getURL = `${API_SOCIAL_URL}${action}/${name}/posts${author}`;
-
-  console.log(getURL, 'this is the getURL');
 
   const response = await authFetch(getURL);
 
