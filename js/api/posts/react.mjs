@@ -1,4 +1,3 @@
-import { authFetch } from '../authFetch.mjs';
 import { API_SOCIAL_URL } from '../constants.mjs';
 import { reactionAuthFetch } from '../authFetch.mjs';
 
@@ -11,9 +10,6 @@ export async function reactionToPost(postData) {
 
   const response = await reactionAuthFetch(reactionURL, {
     method,
-    // headers: {
-    //   'Content-Type': 'application/json',
-    // },
   });
 
   return response.json();

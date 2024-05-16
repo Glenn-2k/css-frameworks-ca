@@ -13,21 +13,3 @@ export async function removePost(id) {
 
   return await response.json();
 }
-
-// export function deletePost() {
-//   const thrashIcon = document.querySelector('trash-icon');
-
-//   thrashIcon.addEventListener('click', async (event) => {
-//     try {
-//       const response = await removePost(postData.id);
-//       if (response.ok) {
-//         console.log('post deleted');
-//         post.remove();
-//       } else {
-//         console.log('post not deleted');
-//       }
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   });
-// }

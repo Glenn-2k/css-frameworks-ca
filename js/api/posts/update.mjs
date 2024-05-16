@@ -19,8 +19,6 @@ export async function updatePost(postData) {
 }
 
 export function editPost(postData) {
-  console.log('EditPost ble startet');
-  console.log(postData);
   if (!postData) {
     console.error('PostData element not provided');
     return;
@@ -34,7 +32,6 @@ export function editPost(postData) {
 }
 
 export async function saveChanges(postData, post, bodyInput) {
-  console.log('SaveChanges ble startet');
   const updatedData = {
     ...postData,
     body: bodyInput.value,
