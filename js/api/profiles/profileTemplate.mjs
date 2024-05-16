@@ -1,6 +1,4 @@
 export async function profileTemplate(profile) {
-  console.log(profile, 'this is the profile template');
-
   const profileSection = document.createElement('div');
   profileSection.classList.add('row');
 
@@ -117,41 +115,3 @@ export async function profileTemplate(profile) {
 
   return profileSection;
 }
-
-{
-  /* <div class="col-2 col-md-4 col-sm-12">
-<h2 class="text-uppercase fs-6">Latest posts</h2>
-</div> */
-}
-
-//   <section class="row">
-//     <div class="col-12 text-center position-relative mb-3">
-//       <img
-//         src="/images/social_media_banner_1240x376.png"
-//         class="img-fluid rounded"
-//         alt="cover"
-//       />
-//       <img
-//         src="/images/Glenn-02.png"
-//         class="rounded-circle position-absolute img-thumbnail profile-pic"
-//         alt="profile picture"
-//       />
-//     </div>
-//   </section>
-//   <section>
-//     <div class="container">
-//       <div class="row text-center mt-5">
-//         <p class="col-12 text-white fs-5 fw-light">@xBatman2k</p>
-//         <p class="col-6 mt-5">234 Followers</p>
-//         <p class="col-6 mt-5">234 Following</p>
-//         <h2 class="col-12 mt-3 text-uppercase fs-6 fw-bold">Bio</h2>
-//         <p class="col-12 fw-light fs-6 mt-1">
-//           A young male hailing from Norway, currently a front end dev.
-//           student at Noroff
-//         </p>
-//         <div>
-//           <button type="button" class="btn btn-secondary">Follow</button>
-//         </div>
-//       </div>
-//     </div>
-//   </section>
