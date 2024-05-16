@@ -21,7 +21,6 @@ export function profilePostTemplate(postData) {
   likeIcon.textContent = postData.reactions.length;
   likeIcon.addEventListener('click', async (event) => {
     const response = await reactionToPost(postData.id);
-    console.log(postData.id);
     setTimeout(() => {
       location.reload();
     }, 300);
