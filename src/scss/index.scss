@@ -1,48 +1,95 @@
+$primary: #283034;
+$secondary: #d9ca82;
 
-    
-    
-    $primary: #283034;
-    $secondary: #D9CA82;
-    
-    
-    
-    // scss-docs-start import-stack
-    // Configuration
-    @import "../../node_modules/bootstrap/scss/functions";
-    @import "variables";
-    @import "variables-dark";
-    @import "../../node_modules/bootstrap/scss/maps";
-    @import "../../node_modules/bootstrap/scss/mixins";
-    @import "../../node_modules/bootstrap/scss/utilities";
-    
-    
-    @import "../../node_modules/bootstrap/scss/bootstrap";
-    
+// scss-docs-start import-stack
+// Configuration
+@import '../../node_modules/bootstrap/scss/functions';
+@import 'variables';
+@import 'variables-dark';
+@import '../../node_modules/bootstrap/scss/maps';
+@import '../../node_modules/bootstrap/scss/mixins';
+@import '../../node_modules/bootstrap/scss/utilities';
+
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
 body {
-    font-family: 'Roboto', Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
-h1,h2,h3,h4,h5 {
-    font-family: 'Lato', Arial, sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Lato', Arial, sans-serif;
 }
 
-
-.letter-spacing {   // added custom CSS since there isnt one for letter-spacing
-    letter-spacing: 0.1em;
+.letter-spacing {
+  // added custom CSS since there isnt one for letter-spacing
+  letter-spacing: 0.1em;
 }
 
 .img-max-width {
-    max-width: 100px;
-  }
+  max-width: 100px;
+}
 
+.profile-pic {
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+}
 
-  .profile-pic {
-    bottom: -50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-  }
+.height-40 {
+  height: 40px;
+}
 
-  .height-40 {
-    height: 40px;
-  }
+.rounded-image-profile {
+  border-radius: 50%;
+  min-width: 40px;
+  min-height: 40px;
+  object-fit: cover;
+  display: block;
+}
+
+.rounded-image {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  display: block;
+}
+
+.trash-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  font-size: 1.2rem;
+  color: gray;
+}
+
+.edit-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 50px;
+  font-size: 1.2rem;
+  color: gray;
+}
+
+.like-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 80px;
+  font-size: 1.2rem;
+  color: gray;
+}
+
+.banner-image {
+  max-height: 187px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.pointer-cursor {
+  cursor: pointer;
+}
